@@ -77,11 +77,3 @@ function  analyzeText(str) {
     text_summary.token = words_array.join("").length
     return text_summary
 }
-
-
-
-
-
-
-
-
