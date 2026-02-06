@@ -79,8 +79,6 @@ function  analyzeText(str) {
     return text_summary
 }
 
-console.log(analyzeText(12345))
-
 
 
 
