@@ -5,7 +5,7 @@ function newPrice(currentPrice , discount ) {
     }
     const discountAmount = (currentPrice * discount) / 100;
     const newPrice = currentPrice - discountAmount;
-    return Number(newPrice.toFixed(3));
+    return newPrice.toFixed(3);
 }
 //Problem-02: OTP Validation for Zapshift
 function validOtp(otp) {
