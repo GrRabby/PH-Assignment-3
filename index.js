@@ -24,7 +24,7 @@ function finalScore (omr) {
     if (typeof omr !== 'object' || Array.isArray(omr)){
         return 'Invalid';
     }
-    total_questions = 0;
+    let total_questions = 0;
     for (const [key,value] of Object.entries(omr)){
         if (typeof value !== 'number'){
             return 'Invalid'
@@ -37,7 +37,52 @@ function finalScore (omr) {
     const final_score = (omr.right * 1) - (omr.wrong * 0.5)
     return Math.round(final_score)
 }
-console.log(finalScore({ right: 30, wrong: 30, skip: 40 }))
+
+//Problem-04: Upcoming Gono Vote
+function gonoVote(array) {
+    if(!Array.isArray(array)){
+        return 'Invalid'
+    }
+    let ha_vote = 0
+    let na_vote = 0
+    for (vote of array){
+        if (vote === 'ha'){
+            ha_vote += 1     
+        }else if (vote === 'na'){
+            na_vote += 1
+        }
+    }
+    if (ha_vote > na_vote){
+        return true
+    }else if(ha_vote === na_vote){
+        return 'equal'
+    }else{
+        return false 
+    }
+}
+
+//Problem-05: Text Analyzer for an AI Company
+function  analyzeText(str) {
+    if(typeof str !== 'string' || str === " "){
+        return 'Invalid'
+    }
+    let word_lenth = 0
+    const words_array = str.split(' ')
+    const text_summary = {}
+    for(const words of words_array){
+        if (words.length > word_lenth){
+            text_summary.longwords = words
+            word_lenth = words.length
+        }
+    }
+    text_summary.token = words_array.join("").length
+    return text_summary
+}
+
+console.log(analyzeText(12345))
+
+
+
 
 
 
