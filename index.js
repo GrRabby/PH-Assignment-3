@@ -1,17 +1,16 @@
 //Problem-01: New Price for Eid Sale
 function newPrice(currentPrice , discount ) {
-    if (typeof currentPrice === "string" || typeof discount === 'string' || discount < 0 || discount > 100) {
+    if (typeof currentPrice !== "number" || typeof discount !== 'number' || discount < 0 || discount > 100) {
         return "Invalid";
     }
     const discountAmount = (currentPrice * discount) / 100;
     const newPrice = currentPrice - discountAmount;
-    return newPrice.toFixed(3);
+    return Number(newPrice.toFixed(3));
 }
-
 //Problem-02: OTP Validation for Zapshift
 function validOtp(otp) {
     if( typeof otp !== 'string'){
-        return 'Invalid '
+        return 'Invalid'
     }
     if(otp.length === 8 && otp.startsWith("ph-")){
         return true
@@ -45,7 +44,7 @@ function gonoVote(array) {
     }
     let ha_vote = 0
     let na_vote = 0
-    for (vote of array){
+    for (const vote of array){
         if (vote === 'ha'){
             ha_vote += 1     
         }else if (vote === 'na'){
@@ -63,21 +62,22 @@ function gonoVote(array) {
 
 //Problem-05: Text Analyzer for an AI Company
 function  analyzeText(str) {
-    if(typeof str !== 'string' || str === " "){
+    if(typeof str !== 'string' || !str.trim()){
         return 'Invalid'
     }
-    let word_lenth = 0
+    let longest_word = ""
     const words_array = str.split(' ')
     const text_summary = {}
     for(const words of words_array){
-        if (words.length > word_lenth){
-            text_summary.longwords = words
-            word_lenth = words.length
+        if (words.length > longest_word.length){
+            longest_word = words
         }
     }
+    text_summary.longwords = longest_word
     text_summary.token = words_array.join("").length
     return text_summary
 }
+
 
 
 
